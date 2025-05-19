@@ -20,6 +20,13 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
+
+if (!loginDetails.email || !loginDetails.password) {
+    toast.warning("Please fill all fields");
+    return;
+  }
+
+
     if (localData.email === loginDetails.email && localData.password === loginDetails.password) {
       toast.success("Logged in Successfully");
       setTimeout(() => navigate('/dashboard'), 1500);
