@@ -10,7 +10,8 @@ export const Signup = () => {
     name: "",
     email: "",
     password: "",
-    address: ""
+    address: "",
+    role:""
   })
 
   const navigate = useNavigate();
@@ -55,6 +56,12 @@ export const Signup = () => {
               onChange={(e) => setSignupDetails({ ...signupDetails, address: e.target.value })}
             />
           </Form.Group>
+          <Form.Select aria-label="Default select example"  onChange={(e) => setSignupDetails({ ...signupDetails, role: e.target.value })}>
+      <option>Choose the Role</option>
+      <option value="patient">Patient</option>
+      <option value="donor">Donor</option>
+      
+    </Form.Select>
 
           <Button variant="primary" type="submit" className="w-100">
             Sign Up

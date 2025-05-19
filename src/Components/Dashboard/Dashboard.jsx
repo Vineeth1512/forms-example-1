@@ -18,6 +18,7 @@ const Dashboard = () => {
       <div className="dashboard-card">
         <p><span className="label">Name:</span> {localData.name}</p>
         <p><span className="label">Email:</span> {localData.email}</p>
+        <p><span className="label">Role:</span> {localData.role}</p>
         <p><span className="label">Address:</span> {localData.address}</p>
       </div>
     </div>
