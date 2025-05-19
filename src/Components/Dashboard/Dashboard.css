@@ -1,0 +1,29 @@
+.dashboard-container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.dashboard-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #ff6b6b;
+}
+
+.dashboard-card {
+  background-color: #f8f9fa;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.dashboard-card .label {
+  font-weight: bold;
+  color: #333;
+  margin-right: 10px;
+}
