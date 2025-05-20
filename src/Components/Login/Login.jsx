@@ -4,7 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { toast, ToastContainer } from "react-toastify"
 import "./Login.css"
 
-const Login = () => {
+const Login = ({isLogin,setIsLogin}) => {
   const [localData, setLocalData] = useState([]);
   const [loginDetails, setLoginDetails] = useState({
     email: "",
@@ -24,6 +24,11 @@ const Login = () => {
 
     const matchedUser = localData.find((x)=>x.email===loginDetails.email && x.password===loginDetails.password);
     console.log(matchedUser);
+    console.log(isLogin);
+    
+localStorage.setItem("isLogin", "true");
+setIsLogin(true);
+
     
     
 

@@ -15,13 +15,13 @@ const Dashboard = () => {
   }, [])
 
 
-  const handleLogout = (e)=>{
-    e.preventDefault();
-    localStorage.removeItem("isLogin");
-    toast.success("Logout successfully.")
-    setTimeout(()=>navigate('/login'),1000)
+  // const handleLogout = (e)=>{
+  //   e.preventDefault();
+  //   localStorage.removeItem("isLogin");
+  //   toast.success("Logout successfully.")
+  //   setTimeout(()=>navigate('/login'),1000)
     
-  }
+  // }
   return (
     <>
      <div className="dashboard-container">
@@ -32,7 +32,7 @@ const Dashboard = () => {
         <p><span className="label">Role:</span> {localData.role}</p>
         <p><span className="label">Address:</span> {localData.address}</p>
 
-        <button onClick={handleLogout}>Logout</button>
+        {/* <button onClick={handleLogout}>Logout</button> */}
       </div>
     </div>
     <ToastContainer/>
