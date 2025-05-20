@@ -19,7 +19,10 @@ export const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(signupDetails);
-    localStorage.setItem("formData", JSON.stringify(signupDetails));
+
+    let allUsersData =JSON.parse( localStorage.getItem("formData"))||[];
+    allUsersData.push(signupDetails);
+    localStorage.setItem("formData", JSON.stringify(allUsersData));
     toast.success("Signed Up Successfully")
     setTimeout(() => navigate('/login'), 1500);
   }
@@ -28,7 +31,10 @@ export const Signup = () => {
     <>
       <div className="signup-container">
         <h2 className="signup-title">Create Account</h2>
-        <Form onSubmit={handleSubmit} className="signup-form">
+        <Form
+         onSubmit={handleSubmit}
+         
+         className="signup-form">
           <Form.Group className="mb-3" controlId="formBasicName">
             <Form.Label>Full Name</Form.Label>
             <Form.Control type="text" placeholder="Enter Your Name"
@@ -56,7 +62,9 @@ export const Signup = () => {
               onChange={(e) => setSignupDetails({ ...signupDetails, address: e.target.value })}
             />
           </Form.Group>
-          <Form.Select aria-label="Default select example"  onChange={(e) => setSignupDetails({ ...signupDetails, role: e.target.value })}>
+          <Form.Select aria-label="Default select example"
+            onChange={(e) => setSignupDetails({ ...signupDetails, role: e.target.value })}
+            >
       <option>Choose the Role</option>
       <option value="patient">Patient</option>
       <option value="donor">Donor</option>

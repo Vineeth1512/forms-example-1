@@ -5,7 +5,7 @@ import { toast, ToastContainer } from "react-toastify"
 import "./Login.css"
 
 const Login = () => {
-  const [localData, setLocalData] = useState({});
+  const [localData, setLocalData] = useState([]);
   const [loginDetails, setLoginDetails] = useState({
     email: "",
     password: ""
@@ -20,6 +20,12 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    console.log(localData);
+
+    const matchedUser = localData.find((x)=>x.email===loginDetails.email && x.password===loginDetails.password);
+    console.log(matchedUser);
+    
+    
 
 if (!loginDetails.email || !loginDetails.password) {
     toast.warning("Please fill all fields");
@@ -27,7 +33,9 @@ if (!loginDetails.email || !loginDetails.password) {
   }
 
 
-    if (localData.email === loginDetails.email && localData.password === loginDetails.password) {
+
+    if (matchedUser) {
+      localStorage.setItem("isLogin", JSON.stringify(matchedUser))
       toast.success("Logged in Successfully");
       setTimeout(() => navigate('/dashboard'), 1500);
     } else {
