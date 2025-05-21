@@ -20,9 +20,11 @@ export const Signup = () => {
     e.preventDefault()
     console.log(signupDetails);
 
-    let allUsersData =JSON.parse( localStorage.getItem("formData"))||[];
-    allUsersData.push(signupDetails);
-    localStorage.setItem("formData", JSON.stringify(allUsersData));
+     let storedData = JSON.parse(localStorage.getItem("formData"));
+  let allUsersData = Array.isArray(storedData) ? storedData : [];
+
+  allUsersData.push(signupDetails);
+  localStorage.setItem("formData", JSON.stringify(allUsersData));
     toast.success("Signed Up Successfully")
     setTimeout(() => navigate('/login'), 1500);
   }
